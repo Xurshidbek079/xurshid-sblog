@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 2em;
+        }
+        article {
+            flex: 3;
+            margin-right: 2em;
+        }
+        aside {
+            flex: 1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1em;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .post-title {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .post-date {
+            color: #555;
+            font-size: 0.9em;
+        }
+        .post-content {
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Xurshidbek's Blog</h1>
+    </header>
+
+    <main>
+        <article>
+            <div class="post-title">{{ post.title }}</div>
+            <div class="post-date">{{ post.published_at }}</div>
+            <div class="post-content">{{ post.content|safe }}</div>
+        </article>
+        <aside>
+            <h3>Other Posts</h3>
+            <ul>
+                {% for other_post in other_posts %}
+                    <li><a href="{% url 'post-detail' other_post.pk %}">{{ other_post.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Xurshidbek's Blog</p>
+    </footer>
+</body>
+</html>
