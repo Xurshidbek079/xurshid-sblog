@@ -3,105 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Detail - Xurshidbek's Blog</title>
+    <title>Xurshidbek's Blog</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
         }
-        header, footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 20px;
         }
-        main {
+        .header {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-bottom: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            padding: 2em;
-            flex: 1;
         }
-        article {
-            width: 100%;
-            max-width: 800px;
-            margin-bottom: 2em;
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
         }
-        .post-title {
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 0.5em;
-        }
-        .post-date {
-            color: #555;
-            font-size: 0.9em;
-            margin-bottom: 1em;
-        }
-        .post-content {
-            font-size: 1.2em;
-            line-height: 1.5;
-            word-wrap: break-word;
-        }
-        .post-content p {
-            max-width: 600px; /* Adjust this width as necessary */
-            margin-bottom: 1em;
-        }
-        a {
+        .nav a {
+            margin-left: 20px;
             text-decoration: none;
             color: #007bff;
+            font-weight: bold;
         }
-        a:hover {
+        .nav a:hover {
             text-decoration: underline;
         }
-        .other-posts {
-            margin-top: 2em;
+        .content {
+            display: flex;
+            margin-top: 20px;
         }
-        .other-posts h3 {
-            font-size: 1.2em;
-            margin-bottom: 0.5em;
+        .main {
+            flex: 3;
         }
-        .other-posts ul {
-            list-style-type: none;
-            padding: 0;
+        .sidebar {
+            flex: 1;
+            margin-left: 40px;
         }
-        .other-posts li {
-            margin-bottom: 0.5em;
+        .blog-post {
+            background-color: #fff;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .blog-post h2 {
+            margin-top: 0;
+            font-size: 24px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .blog-post p {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+        .blog-post a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+        .subscribe {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .subscribe h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+        .subscribe p {
+            font-size: 16px;
+        }
+        .subscribe a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .subscribe a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Xurshidbek's Blog</h1>
-    </header>
-
-    <main>
-        <article>
-            <div class="post-title">{{ post.title }}</div>
-            <div class="post-date">{{ post.published_at|date:"d M Y" }}</div>
-            <div class="post-content">
-                {{ post.content|linebreaks }}
+    <div class="container">
+        <div class="header">
+            <h1>Xurshidbek's Blog</h1>
+            <div class="nav">
+                <a href="#">Blog</a>
+                <a href="#">Channel</a>
             </div>
-        </article>
-
-        <div class="other-posts">
-            <h3>Other Posts</h3>
-            <ul>
-                {% for other_post in other_posts %}
-                    <li>
-                        <a href="{% url 'post-detail' other_post.pk %}">{{ other_post.title }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Xurshidbek's Blog</p>
-    </footer>
+        <div class="content">
+            <div class="main">
+                <div class="blog-post">
+                    <h2>June 2024</h2>
+                    <p><strong>12 June, 2024</strong></p>
+                    <a href="post1.html">To'g'ri ishni to'g'ri vaqtda qilinsa foyda olinadi.</a>
+                </div>
+                <div class="blog-post">
+                    <p><strong>6 June, 2024</strong></p>
+                    <p><a href="post2.html">O'zlik</a></p>
+                </div>
+                <div class="blog-post">
+                    <h2>May</h2>
+                    <p><strong>27 May, 2024</strong></p>
+                    <p><a href="post3.html">Imtihon</a></p>
+                </div>
+                <div class="blog-post">
+                    <p><strong>26 May, 2024</strong></p>
+                    <p><a href="post4.html">Ishlab topilgan luqma</a></p>
+                </div>
+                <div class="blog-post">
+                    <p><strong>23 May, 2024</strong></p>
+                    <p><a href="post5.html">Qiymat</a></p>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="subscribe">
+                    <h2>Obuna Bo'ling</h2>
+                    <p>Yangi maqola, maruza va darslarimni <a href="https://t.me/xurshidbro_blog" target="_blank">@xurshidbro_blog</a> telegram kanalımda topishingiz mumkin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

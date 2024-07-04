@@ -3,82 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ post.title }}</title>
+    <title> - Xurshidbek's Blog</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
         }
-        header, footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            padding: 20px;
         }
-        main {
+        .header {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-bottom: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
             display: flex;
-            justify-content: center;
-            padding: 2em;
+            justify-content: space-between;
+            align-items: center;
         }
-        article {
-            flex: 3;
-            margin-right: 2em;
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
         }
-        aside {
-            flex: 1;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 1em;
-        }
-        a {
+        .nav a {
+            margin-left: 20px;
             text-decoration: none;
             color: #007bff;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .post-title {
-            font-size: 2em;
             font-weight: bold;
         }
-        .post-date {
-            color: #555;
-            font-size: 0.9em;
+        .nav a:hover {
+            text-decoration: underline;
         }
-        .post-content {
-            margin-top: 1em;
+        .content {
+            display: flex;
+            margin-top: 20px;
+        }
+        .main {
+            flex: 3;
+        }
+        .sidebar {
+            flex: 1;
+            margin-left: 40px;
+        }
+        .blog-post {
+            background-color: #fff;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .blog-post h2 {
+            margin-top: 0;
+            font-size: 24px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .blog-post p {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+        .subscribe {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .subscribe h2 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+        .subscribe p {
+            font-size: 16px;
+        }
+        .subscribe a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .subscribe a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Xurshidbek's Blog</h1>
-    </header>
-
-    <main>
-        <article>
-            <div class="post-title">{{ post.title }}</div>
-            <div class="post-date">{{ post.published_at }}</div>
-            <div class="post-content">{{ post.content|safe }}</div>
-        </article>
-        <aside>
-            <h3>Other Posts</h3>
-            <ul>
-                {% for other_post in other_posts %}
-                    <li><a href="{% url 'post-detail' other_post.pk %}">{{ other_post.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </aside>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Xurshidbek's Blog</p>
-    </footer>
+    <div class="container">
+        <div class="header">
+            <h1>Xurshidbek's Blog</h1>
+            <div class="nav">
+                <a href="index.html">Blog</a>
+                <a href="#">Channel</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="main">
+                <div class="blog-post">
+                    <h2>Avtomatlashtiring</h2>
+                    <p><strong>12 June, 2024</strong></p>
+                    <p>To'g'ri ishni to'g'ri vaqtda qilinsa foyda olinadi.</p>
+                    <p>To'g'ri ishni noto'g'ri vaqtda qilinsa zarar keladi.</p>
+                    <p>Har bir ishni o'z vaqtida qiling.</p>
+                    <p>O'z vaqtidan oldin boshlansa nuqsonli bo'ladi.</p>
+                    <p>Nuqsonsiz bo'lib lekin kechiksa, endi keragi bo'lmaydi.</p>
+                    <p>O'sha fursatni xotirjamlikni yo'qotmay kuting.</p>
+                    <p>Va</p>
+                    <p>vaqti kelganda jur'atsizlik qilib o'tkazib yubormang.</p>
+                    <p>Vaqtni to'g'ri taqsimlash nega muhimligini tushungandirsiz?!</p>
+                    <p>- Xurshid bro (https://t.me/xurshidbro_blog)</p>
+                    <p>12.06.2024</p>
+                    <p>Buxoroi Sharif</p>
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="subscribe">
+                    <h2>Obuna Bo'ling</h2>
+                    <p>Yangi maqola, maruza va darslarimni <a href="https://t.me/xurshidbro_blog" target="_blank">@xurshidbro_blog</a> telegram kanalımda topishingiz mumkin.</p>
+                </div>
+                </div>
+        </div>
+    </div>
 </body>
 </html>
